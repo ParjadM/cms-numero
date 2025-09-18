@@ -1,0 +1,42 @@
+INSERT INTO info (id, first_name, last_name,email,region)
+    SELECT id, first_name, last_name,email,region
+    FROM mock_data;
+
+
+INSERT INTO position (position, salary,department,datestarted,infoId)
+    SELECT position, '$' salary,department,date_started,id
+    FROM mock_data;
+
+INSERT INTO shirt_size (gender,top_size,infoId)
+    SELECT gender,top_size,id
+    FROM mock_data;
+
+SELECT DISTINCT column1, column2, ...
+FROM table_name;
+
+
+https://www.geeksforgeeks.org/php/how-to-insert-form-data-into-database-using-php/
+
+
+Research Associate $97930.02
+Librarian $91738.68
+
+INSERT INTO gender (gender)
+VALUES ('Agender');
+
+https://www.youtube.com/watch?v=smd42yMzWA4
+https://www.youtube.com/watch?v=VPp_E6Kwizk&list=PLm8sgxwSZoff2xErojJ9iUQciMAE4l5rE&index=3
+
+login
+https://www.youtube.com/watch?v=xnmqMdxea8Y
+
+logout sessions
+https://www.youtube.com/watch?v=LThQrcPhSKk
+
+
+
+
+#F0F0F0
+#D9E9CF
+#B6CEB4
+#96A78D
