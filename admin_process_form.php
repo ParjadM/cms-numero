@@ -19,11 +19,11 @@ if(!$_SESSION['email']){
 $name = mysqli_real_escape_string($conn, $_POST['name']);
 $email = mysqli_real_escape_string($conn, $_POST['email']);
 $usertype = mysqli_real_escape_string($conn, $_POST['usertype']);
+$password = mysqli_real_escape_string($conn, $_POST['password']);
 
 
-
-$sql = "INSERT INTO info (name,email, usertype) 
-        VALUES ('$name', '$email', '$usertype')";
+$sql = "INSERT INTO info (name,email, usertype, password) 
+        VALUES ('$name', '$email', '$usertype', '$password')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";

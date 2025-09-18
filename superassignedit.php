@@ -25,9 +25,7 @@
 
 <?php 
 
-// if ((!isset($_SESSION['email']) || $_SESSION['usertype'] !== '1')) {
-//     header('location:login.php');
-// }
+
 $s_id = $_GET['id'];
 $get_sql = "SELECT id,name, email , usertype FROM info WHERE id='$s_id'";
 

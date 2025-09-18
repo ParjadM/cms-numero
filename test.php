@@ -24,6 +24,7 @@
 </div>
 <h1>WELCOME TO THE HOME PAGE <?php echo $_SESSION['email']; ?><h1>
         <h2>THIS IS WHERE YOU ADD INFORMATION</h2>
+        <hr>
         <p>Add Information</p>
 
         <form action="process_form.php" method="POST">

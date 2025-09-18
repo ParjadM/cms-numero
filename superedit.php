@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<?php include 'connection.php'; ?>
 <style>
     body {
         background-color: #B6CEB4;
@@ -21,7 +22,7 @@
     <a href="logout.php" class="btn btn-warning">Logout</a>
 </div>
 
-<?php include 'connection.php';
+<?php 
 
 if((!isset($_SESSION['email']) || $_SESSION['usertype'] !== '1')){
     header('location:login.php');
@@ -39,6 +40,7 @@ if (isset($_POST['update'])) {
     $s_name = $_POST['name'];
     $email = $_POST['email'];
     $usertype = $_POST['usertype'];
+    
 
     $update_sql = "Update info set id='$s_id', name='$s_name', email='$email', usertype='$usertype' where id='$s_ids'";;
 
@@ -51,6 +53,7 @@ if (isset($_POST['update'])) {
 }
 ?>
 <h1>Update admin page</h1>
+<h2>In here you edit admin or user privilages</h2>
 
 <form action="" method="POST">
     <label for="id">id:</label>
