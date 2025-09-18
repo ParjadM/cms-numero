@@ -1,9 +1,27 @@
+<?php include 'connection.php'; ?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <style>
-body {
-  background-color: #B6CEB4;
-}
+    body {
+        background-color: #B6CEB4;
+    }
+
+    .heading {
+        position: absolute;
+        right: 0;
+    }
 </style>
-<a href="logout.php">Logout</a>
+<div class="heading">
+    <?php
+
+    echo $_SESSION['email'];
+    //need to fix this
+    if (!$_SESSION['email']) {
+        header('location:login.php');
+    }
+    ?>
+    <a href="logout.php" class="btn btn-warning">Logout</a>
+    <br>
+</div>
 
 <?php include 'connection.php';
 $s_id = $_GET['id'];
@@ -36,7 +54,7 @@ if (isset($_POST['update'])) {
     header("Location: update.php");
 }
 ?>
-<p>Update this page</p>
+<h1>Update this page</h1>
 
 
 
@@ -72,6 +90,6 @@ if (isset($_POST['update'])) {
     <label for="positionid">Position:</label>
     <input type="text" id="positionid" name="positionid" value="<?php echo $Onerow['positionId']; ?>">
     <br>
-    <button type="submit" name="update">Update</button>
+    <button type="submit" name="update" class="btn btn-success">Update</button>
 </form>
-<a href="update.php">Back</a>
+<a href="update.php"  class="btn btn-info">Back</a>

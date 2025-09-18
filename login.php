@@ -111,10 +111,10 @@ if (isset($_POST['login'])) {
                 </div>
                 <div>
                     <input type="submit" class="btn btn-success" name="login" value="Login">
+                    <a href="register.php" class="btn btn-danger">Register</a>
                 </div>
             </form>
         </center>
     </div>
 </body>
-<a href="register.php">register</a>
 </html>

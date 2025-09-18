@@ -1,23 +1,23 @@
 <style>
-body {
-  background-color: #B6CEB4;
-}
+    body {
+        background-color: #B6CEB4;
+    }
 </style>
 
 <?php
 
 include 'connection.php';
 
-if(isset($_POST['register'])){
- $username=$_POST['name'];
- $email=$_POST['email'];
- $password=$_POST['password'];
- $sql1="INSERT INTO info (name,email,password) VALUES ('$username','$email','$password') ";
+if (isset($_POST['register'])) {
+    $username = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $sql1 = "INSERT INTO info (name,email,password) VALUES ('$username','$email','$password') ";
 
- $result= mysqli_query($conn,$sql1);
- if($result){
-    header('location:login.php');
- }
+    $result = mysqli_query($conn, $sql1);
+    if ($result) {
+        header('location:login.php');
+    }
 }
 
 ?>
@@ -32,25 +32,37 @@ if(isset($_POST['register'])){
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style type="text/css">
-        .form_pos
-        {
-            padding-top: 200px;
+        body {
+            background-color: #B6CEB4;
         }
-        label
-        {
+
+        .form_pos {
+            padding-top: 200px;
+
+        }
+
+        label {
             display: inline-block;
             width: 100px;
             padding-top: 10px;
             padding-bottom: 10px;
         }
+
         .form_deg {
             background-color: skyblue;
             width: 500px;
             padding-top: 70px;
             padding-bottom: 70px;
+            background: rgba(255, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.37);
+            color: #fff;
         }
-        .title
-        {
+
+        .title {
             background-color: black;
             color: white;
             width: 500px;
@@ -58,6 +70,13 @@ if(isset($_POST['register'])){
             padding-top: 10px;
             padding-bottom: 10px;
             font-weight: bold;
+            background: black;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.37);
+            color: #fff;
         }
     </style>
 </head>
@@ -67,7 +86,7 @@ if(isset($_POST['register'])){
         <center>
             <div class="title">Register</div>
 
-            <form  action="register.php" method="POST" class="form_deg">
+            <form action="register.php" method="POST" class="form_deg">
                 <div>
                     <label>Name</label>
                     <input type="text" name="name">
@@ -81,7 +100,7 @@ if(isset($_POST['register'])){
                     <input type="password" name="password">
                 </div>
                 <div>
-                    <input type="submit" class="btn btn-success"  name="register" value="Register">
+                    <input type="submit" class="btn btn-success" name="register" value="Register">
                 </div>
             </form>
         </center>

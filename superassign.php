@@ -1,18 +1,26 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <?php include 'connection.php'; ?>
 <style>
     body {
         background-color: #B6CEB4;
     }
+
+    .heading {
+        position: absolute;
+        right: 0;
+    }
 </style>
-<?php
+<div class="heading">
+    <?php
 
-echo $_SESSION['email'];
+    echo $_SESSION['email'];
 
-if ((!isset($_SESSION['email']) || $_SESSION['usertype'] !== '1')) {
-    header('location:login.php');
-}
-?>
-<a href="logout.php">Logout</a>
+    if ((!isset($_SESSION['email']) || $_SESSION['usertype'] !== '1')) {
+        header('location:login.php');
+    }
+    ?>
+    <a href="logout.php" class="btn btn-warning">Logout</a>
+</div>
 <?php
 if (isset($_GET['id'])) {
     $s_delete = $_GET['id'];
@@ -31,8 +39,8 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         if ($row['usertype'] === '2') {
             echo '<p>' . $row['id'] . ' - ' . $row['name'] . ' - ' . $row['email'] . ' - ' . $row['usertype'] . ' - ' . $row['assign'];
-            echo '<a href="superassignedit.php?id=' . $row['id'] . '">update</a>';
-            echo '<a href="superassign.php?id=' . $row['id'] . '">delete</a>';
+            echo '<a href="superassignedit.php?id=' . $row['id'] . '" class="btn btn-warning">update</a>';
+            echo '<a href="superassign.php?id=' . $row['id'] . '" class="btn btn-danger">delete</a>';
         }
     }
 } else {
@@ -40,4 +48,5 @@ if ($result->num_rows > 0) {
 }
 
 ?>
-<a href="superadmin.php">Home Page</a>
+<br>
+<a href="superadmin.php" class="btn btn-success">Home Page</a>

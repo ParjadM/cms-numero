@@ -1,9 +1,25 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <style>
-body {
-  background-color: #B6CEB4;
-}
+    body {
+        background-color: #B6CEB4;
+    }
+
+    .heading {
+        position: absolute;
+        right: 0;
+    }
 </style>
-<a href="logout.php">Logout</a>
+<div class="heading">
+    <?php
+
+    echo $_SESSION['email'];
+
+    if ((!isset($_SESSION['email']) || $_SESSION['usertype'] !== '1')) {
+        header('location:login.php');
+    }
+    ?>
+    <a href="logout.php" class="btn btn-warning">Logout</a>
+</div>
 
 <?php include 'connection.php';
 
@@ -34,10 +50,7 @@ if (isset($_POST['update'])) {
     header("Location: superupdate.php");
 }
 ?>
-<p>Update this page</p>
-
-
-
+<h1>Update admin page</h1>
 
 <form action="" method="POST">
     <label for="id">id:</label>
@@ -52,6 +65,6 @@ if (isset($_POST['update'])) {
     <label for="usertype">User Type:</label>
     <input type="text" id="usertype" name="usertype" value="<?php echo $Onerow['usertype']; ?>">
     <br>
-    <button type="submit" name="update">Update</button>
+    <button type="submit" name="update" class="btn btn-success">Update</button>
 </form>
-<a href="superupdate.php">Back</a>
+<a href="superupdate.php" class="btn btn-primary">Back</a>
