@@ -82,3 +82,4 @@ if (isset($_POST['update'])) {
     <button type="submit" name="update" class="btn btn-success">Update</button>
 </form>
 <a href="superupdate.php" class="btn btn-primary">Back</a>
+<?php include 'footer.php'; ?>

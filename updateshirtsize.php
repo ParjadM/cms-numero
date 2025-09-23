@@ -57,3 +57,4 @@ if (isset($_POST['update'])) {
     <button type="submit" name="update" class="btn btn-success">Update</button>
 </form>
 <a href="shirtsize.php"  class="btn btn-info">Back</a>
+<?php include 'footer.php'; ?>

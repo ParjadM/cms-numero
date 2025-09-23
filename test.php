@@ -10,7 +10,6 @@
         right: 0;
     }
 </style>
-<?php include 'header.php'; ?>
 <div class="heading">
     <?php
 
@@ -143,3 +142,4 @@
         }
         ?>
         <?php include 'footer.php'; ?>
+        

@@ -65,3 +65,4 @@ if ($result->num_rows > 0) {
 ?>
 <br>
 <a href="test.php" class="btn btn-success">Home Page</a>
+<?php include 'footer.php'; ?>

@@ -11,7 +11,7 @@
     }
     
 </style>
-<?php include 'header.php'; ?>
+
 <div class="heading">
     <?php
 

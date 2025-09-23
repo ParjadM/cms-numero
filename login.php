@@ -1,4 +1,3 @@
-<?php include 'header.php'; ?>
 <?php
 include 'connection.php';
 if (isset($_POST['login'])) {

@@ -105,6 +105,7 @@ if (isset($_POST['register'])) {
             </form>
         </center>
     </div>
+    <?php include 'footer.php'; ?>
 </body>
 
 </html>

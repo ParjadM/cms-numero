@@ -61,3 +61,4 @@ if (isset($_GET['id'])) {
             <button type="submit" class="btn btn-success">Submit</button>
         </form>
         <a href="test.php" class="btn btn-success">Back To Admin</a>
+        <?php include 'footer.php'; ?>
