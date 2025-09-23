@@ -15,7 +15,7 @@
 
     echo $_SESSION['email'];
 
-    if (!$_SESSION['email']) {
+    if ((!isset($_SESSION['email']) || ($_SESSION['usertype'] !== '1' && $_SESSION['usertype'] !== '2'))) {
         header('location:login.php');
     }
     ?>
@@ -37,10 +37,21 @@ if (isset($_GET['id'])) {
 
 if ($result->num_rows > 0) {
     // output data of each row
+    $email = $_SESSION['email'];
+    $name = '';
     while ($row = $result->fetch_assoc()) {
-        echo '<p>' . $row['id'] . ' - ' . $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'] . ' - ' . $row['date_started'] . ' - ' . $row['genderid'] . ' - ' . $row['shirtsizeid'] . ' - ' . $row['departmentid'] . ' - ' . $row['regionId'] . ' - ' . $row['positionId'] . ' - ' . $row['usertype'] . ' - ' . $row['assign'] .  ' - ' . $row['name'] . '</p>';
-        echo '<a href="edit.php?id=' . $row['id'] . '" class="btn btn-primary">update</a>';
-        echo '<a href="update.php?id=' . $row['id'] . '" class="btn btn-danger">delete</a>';
+        if ($row['email'] == $email) {
+            $name = $row['name'];
+        }
+    }
+    //resets the fetch_assoc pointer to the beginning
+    $result->data_seek(0);
+    while ($row = $result->fetch_assoc()) {
+        if ($row['assign'] == $name) {
+            echo '<p>' . $row['id'] . ' - ' . $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'] . ' - ' . $row['date_started'] . ' - ' . $row['genderid'] . ' - ' . $row['shirtsizeid'] . ' - ' . $row['departmentid'] . ' - ' . $row['regionId'] . ' - ' . $row['positionId'] . ' - ' . $row['usertype'] . ' - ' . $row['assign'] .  ' - ' . $row['name'] . '</p>';
+            echo '<a href="edit.php?id=' . $row['id'] . '" class="btn btn-primary">update</a>';
+            echo '<a href="update.php?id=' . $row['id'] . '" class="btn btn-danger">delete</a>';
+        }
     }
 } else {
     echo "There is no data";

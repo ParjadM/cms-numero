@@ -47,4 +47,4 @@ if ($result->num_rows > 0) {
 
 ?>
 <br>
-<a href="superadmin.php" class="btn btn-success">Home Page</a>
+<a href="superadmin.php" class="btn btn-success">Super Admin Home Page</a>

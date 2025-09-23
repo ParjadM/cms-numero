@@ -122,7 +122,36 @@
                     ?>
             </select>
             <br>
+            <label for="assign">Assigned:</label>
+            <select name="assign" id="assign">
+                <option value="None" selected>
+                    <?PHP 
+                    $name = '';
+                    if ($resultassign->num_rows > 0) {
+                        if ($resultassign->num_rows > 0) {
+                            while ($row = $resultassign->fetch_assoc()) {
+                                if ($row['email'] == $_SESSION['email']) {
+                                    $name = $row['name'];
+                                    break;
+                                }
+                            }
+                            //resets the fetch_assoc pointer to the beginning
+                            $resultassign->data_seek(0);
 
+
+                            // output data of each row
+                            while ($row = $resultassign->fetch_assoc()) {
+                                if ($row['assign'] == $name) {
+                                    echo '<option value="' . $row['id'] . '">' . $row['name'] . '</option>';
+                                }
+                            }
+                        } else {
+                            echo "<option value='None' selected>";
+                        }
+                    }
+                    ?>
+            </select>
+            <br>
 
             <button type="submit" class="btn btn-success">Submit</button>
 

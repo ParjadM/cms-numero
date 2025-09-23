@@ -36,9 +36,22 @@ if (isset($_GET['id'])) {
 <?PHP
 
 if ($result->num_rows > 0) {
+    $email = $_SESSION['email'];
+    $name = '';
+    while ($row = $result->fetch_assoc()) {
+        if ($row['email'] == $email) {
+            $name = $row['name'];
+        }
+    }
+    //resets the fetch_assoc pointer to the beginning
+    $result->data_seek(0);
     // output data of each row
     while ($row = $result->fetch_assoc()) {
-        echo '<p>' . $row['id'] . ' - ' . $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'] . ' - ' . $row['date_started'] . ' - ' . $row['genderid'] . ' - ' . $row['shirtsizeid'] . ' - ' . $row['departmentid'] . ' - ' . $row['regionId'] . ' - ' . $row['positionId']  . '</p>';
+        if ($row['assign'] == $name) {
+            echo '<p>' . $row['id'] . ' - ' . $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'] . ' - ' . $row['date_started'] . ' - ' . $row['genderid'] . ' - ' . $row['shirtsizeid'] . ' - ' . $row['departmentid'] . ' - ' . $row['regionId'] . ' - ' . $row['positionId']  . '</p>';
+        } else if ($row['email'] == $email) {
+            echo '<p>' . $row['id'] . ' - ' . $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'] . ' - ' . $row['date_started'] . ' - ' . $row['genderid'] . ' - ' . $row['shirtsizeid'] . ' - ' . $row['departmentid'] . ' - ' . $row['regionId'] . ' - ' . $row['positionId']  . '</p>';
+        }
     }
 } else {
     echo "There is no data";

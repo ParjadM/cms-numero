@@ -56,6 +56,10 @@ $resultregion = $conn->query($sqlregionid);
 $sqlpositionid = "Select id, position, salary from position";
 $resultposition = $conn->query($sqlpositionid);
 
+
+$assign = "Select id, assign, name, email from info";
+$resultassign = $conn->query($assign);
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
