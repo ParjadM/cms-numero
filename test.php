@@ -158,4 +158,9 @@
         </form>
 
         <a href="update.php" class="btn btn-success">Update</a>
-        <a href="userhome.php" class="btn btn-primary">User page</a>
+        <a href="userhome.php" class="btn btn-secondary">User page</a>
+        <a href="department.php" class="btn btn-primary">Department</a>
+        <a href="gender.php" class="btn btn-primary">Gender</a>
+        <a href="position.php" class="btn btn-primary">Position</a>
+        <a href="region.php" class="btn btn-primary">Region</a>
+        <a href="shirtsize.php" class="btn btn-primary">Shirt Size</a>

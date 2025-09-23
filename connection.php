@@ -60,6 +60,24 @@ $resultposition = $conn->query($sqlpositionid);
 $assign = "Select id, assign, name, email from info";
 $resultassign = $conn->query($assign);
 
+
+$department = "Select id, departments from department";
+$departmenttable = $conn->query($department);
+
+$gender = "Select id, gender from gender";
+$gendertable = $conn->query($gender);
+
+$position = "Select id, position, salary from position";
+$positiontable = $conn->query($position);
+
+$region = "Select id, regions from region";
+$regiontable = $conn->query($region);
+
+
+$shirtsize = "Select id, shirtsize from shirt_size";
+$shirtsizetable = $conn->query($shirtsize);
+
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
