@@ -53,6 +53,13 @@ if ($result->num_rows > 0) {
             echo '<p>' . $row['id'] . ' - ' . $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'] . ' - ' . $row['date_started'] . ' - ' . $row['genderid'] . ' - ' . $row['shirtsizeid'] . ' - ' . $row['departmentid'] . ' - ' . $row['regionId'] . ' - ' . $row['positionId']  . '</p>';
         }
     }
+    $result->data_seek(0);
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
+        if ($_SESSION['usertype'] == '1') {
+            echo '<p>' . $row['id'] . ' - ' . $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'] . ' - ' . $row['date_started'] . ' - ' . $row['genderid'] . ' - ' . $row['shirtsizeid'] . ' - ' . $row['departmentid'] . ' - ' . $row['regionId'] . ' - ' . $row['positionId']  . '</p>';
+        } 
+    }
 } else {
     echo "There is no data";
 }

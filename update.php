@@ -52,6 +52,11 @@ if ($result->num_rows > 0) {
             echo '<a href="edit.php?id=' . $row['id'] . '" class="btn btn-primary">update</a>';
             echo '<a href="update.php?id=' . $row['id'] . '" class="btn btn-danger">delete</a>';
         }
+        if ($_SESSION['usertype'] == '1') {
+            echo '<p>' . $row['id'] . ' - ' . $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'] . ' - ' . $row['date_started'] . ' - ' . $row['genderid'] . ' - ' . $row['shirtsizeid'] . ' - ' . $row['departmentid'] . ' - ' . $row['regionId'] . ' - ' . $row['positionId'] . ' - ' . $row['usertype'] . ' - ' . $row['assign'] .  ' - ' . $row['name'] . '</p>';
+            echo '<a href="edit.php?id=' . $row['id'] . '" class="btn btn-primary">update</a>';
+            echo '<a href="update.php?id=' . $row['id'] . '" class="btn btn-danger">delete</a>';
+        }
     }
 } else {
     echo "There is no data";
