@@ -1,3 +1,4 @@
+<?php include 'header.php'; ?>
 <?php
 include 'connection.php';
 if (isset($_POST['login'])) {
@@ -116,5 +117,6 @@ if (isset($_POST['login'])) {
             </form>
         </center>
     </div>
+    <?php include 'footer.php'; ?>
 </body>
 </html>

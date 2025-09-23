@@ -10,6 +10,7 @@
         right: 0;
     }
 </style>
+<?php include 'header.php'; ?>
 <div class="heading">
     <?php
 
@@ -141,3 +142,4 @@
             echo '<a href="superadmin.php" class="btn btn-danger">Super Admin Page</a>';
         }
         ?>
+        <?php include 'footer.php'; ?>

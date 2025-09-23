@@ -9,7 +9,9 @@
         position: absolute;
         right: 0;
     }
+    
 </style>
+<?php include 'header.php'; ?>
 <div class="heading">
     <?php
 
@@ -72,3 +74,4 @@ if ($result->num_rows > 0) {
  }
 
 ?>
+<?php include 'footer.php'; ?>
