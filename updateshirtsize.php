@@ -33,10 +33,9 @@ $Onerow = mysqli_fetch_assoc($query);
 
 if (isset($_POST['update'])) {
     $s_ids = $_GET['id'];
-    $s_id = $_POST['id'];
     $s_shirtsize = $_POST['shirtsize'];
 
-    $update_sql = "Update shirt_size set id='$s_id', shirtsize='$s_shirtsize' where id='$s_ids'";
+    $update_sql = "Update shirt_size set  shirtsize='$s_shirtsize' where id='$s_ids'";
 
     $data = mysqli_query($conn, $update_sql);
 
@@ -52,9 +51,6 @@ if (isset($_POST['update'])) {
 
 
 <form action="" method="POST">
-    <label for="id">id:</label>
-    <input type="number" name="id" value="<?php echo $Onerow['id']; ?>">
-    <br>
     <label for="shirtsize">Shirt Size:</label>
     <input type="text" id="shirtsize" name="shirtsize" value="<?php echo $Onerow['shirtsize']; ?>">
     <br>

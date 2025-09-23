@@ -40,7 +40,7 @@ if (isset($_GET['id'])) {
 
         if ($positiontable->num_rows > 0) {
             while ($row = $positiontable->fetch_assoc()) {
-                echo '<p>' . $row['id'] . ' - ' . $row['position'] . ' - ' . $row['salary'] . '</p>';
+                echo '<p>' . $row['position'] . ' - ' . $row['salary'] . '</p>';
                 echo '<a href="updateposition.php?id=' . $row['id'] . '" class="btn btn-primary">update</a>';
                 echo '<a href="position.php?id=' . $row['id'] . '" class="btn btn-danger">delete</a>';
             }
@@ -52,9 +52,6 @@ if (isset($_GET['id'])) {
         <br>
         <p>ADD Position</p>
         <form action="process_position.php" method="POST">
-            <label for="id">Position ID:</label>
-            <input type="text" id="id" name="id" required>
-            <br>
             <label for="position">Position Name:</label>
             <input type="text" id="position" name="position" required>
             <br>

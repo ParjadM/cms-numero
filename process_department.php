@@ -9,8 +9,8 @@ $departmentname = mysqli_real_escape_string($conn, $_POST['departments']);
 
 
 
-$sql2 = "INSERT INTO department (id, departments) 
-        VALUES ('$departmentid', '$departmentname')";
+$sql2 = "INSERT INTO department (departments) 
+        VALUES ('$departmentname')";
 
 
 

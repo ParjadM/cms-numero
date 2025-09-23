@@ -25,7 +25,7 @@
 
 <?php include 'connection.php';
 $s_id = $_GET['id'];
-$get_sql = "SELECT id,departments FROM department WHERE id='$s_id'";
+$get_sql = "SELECT departments FROM department WHERE id='$s_id'";
 
 $query = mysqli_query($conn, $get_sql);
 
@@ -33,17 +33,16 @@ $Onerow = mysqli_fetch_assoc($query);
 
 if (isset($_POST['update'])) {
     $s_ids = $_GET['id'];
-    $s_id = $_POST['id'];
     $s_departments = $_POST['departments'];
 
-    $update_sql = "Update department set id='$s_id', departments='$s_departments' where id='$s_ids'";
+    $update_sql = "Update department set departments='$s_departments' where id='$s_ids'";
 
     $data = mysqli_query($conn, $update_sql);
 
     if ($data) {
         echo "<script>alert('data updated sucessful');</script>";
     }
-    header("Location: update.php");
+    header("Location: department.php");
 }
 ?>
 <h1>Update this page</h1>
@@ -52,9 +51,6 @@ if (isset($_POST['update'])) {
 
 
 <form action="" method="POST">
-    <label for="id">id:</label>
-    <input type="number" name="id" value="<?php echo $Onerow['id']; ?>">
-    <br>
     <label for="departments">Department Name:</label>
     <input type="text" id="departments" name="departments" value="<?php echo $Onerow['departments']; ?>">
     <br>

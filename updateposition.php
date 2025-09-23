@@ -25,7 +25,7 @@
 
 <?php include 'connection.php';
 $s_id = $_GET['id'];
-$get_sql = "SELECT id,position,salary FROM position WHERE id='$s_id'";
+$get_sql = "SELECT position,salary FROM position WHERE id='$s_id'";
 
 $query = mysqli_query($conn, $get_sql);
 
@@ -33,11 +33,10 @@ $Onerow = mysqli_fetch_assoc($query);
 
 if (isset($_POST['update'])) {
     $s_ids = $_GET['id'];
-    $s_id = $_POST['id'];
     $s_position = $_POST['position'];
     $s_salary = $_POST['salary'];
 
-    $update_sql = "Update position set id='$s_id', position='$s_position', salary='$s_salary' where id='$s_ids'";
+    $update_sql = "Update position set position='$s_position', salary='$s_salary' where id='$s_ids'";
 
     $data = mysqli_query($conn, $update_sql);
 
@@ -53,9 +52,6 @@ if (isset($_POST['update'])) {
 
 
 <form action="" method="POST">
-    <label for="id">id:</label>
-    <input type="number" name="id" value="<?php echo $Onerow['id']; ?>">
-    <br>
     <label for="position">Position Name:</label>
     <input type="text" id="position" name="position" value="<?php echo $Onerow['position']; ?>">
     <br>

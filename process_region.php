@@ -3,8 +3,8 @@
 $regionid = mysqli_real_escape_string($conn, $_POST['id']);
 $regions = mysqli_real_escape_string($conn, $_POST['regions']);
 
-$sql3 = "INSERT INTO region (id, regions) 
-        VALUES ('$regionid', '$regions')";
+$sql3 = "INSERT INTO region (regions) 
+        VALUES ( '$regions')";
 
 if ($conn->query($sql3) === TRUE) {
     echo "New record created successfully";

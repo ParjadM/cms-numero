@@ -65,3 +65,10 @@ if ($result->num_rows > 0) {
 }
 
 ?>
+<?PHP
+ if ($_SESSION['usertype'] == '1' || $_SESSION['usertype'] == '2') {
+    echo '<a href="update.php" class="btn btn-success">Update Info Page</a>';
+    echo '<a href="test.php" class="btn btn-success">Home Page</a>';
+ }
+
+?>

@@ -40,7 +40,7 @@ if (isset($_GET['id'])) {
 
         if ($departmenttable->num_rows > 0) {
             while ($row = $departmenttable->fetch_assoc()) {
-                echo '<p>' . $row['id'] . ' - ' . $row['departments'] . '</p>';
+                echo '<p>' . $row['departments'] . '</p>';
                 echo '<a href="updatedepartment.php?id=' . $row['id'] . '" class="btn btn-primary">update</a>';
                 echo '<a href="department.php?id=' . $row['id'] . '" class="btn btn-danger">delete</a>';
             }
@@ -52,9 +52,6 @@ if (isset($_GET['id'])) {
         <br>
         <p>ADD Departments</p>
         <form action="process_department.php" method="POST">
-            <label for="id">Department ID:</label>
-            <input type="text" id="id" name="id" required>
-            <br>
             <label for="departments">Department Name:</label>
             <input type="text" id="departments" name="departments" required>
             <br>

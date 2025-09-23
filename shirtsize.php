@@ -40,7 +40,7 @@ if (isset($_GET['id'])) {
 
         if ($shirtsizetable->num_rows > 0) {
             while ($row = $shirtsizetable->fetch_assoc()) {
-                echo '<p>' . $row['id'] . ' - ' . $row['shirtsize'] . '</p>';
+                echo '<p>' . $row['shirtsize'] . '</p>';
                 echo '<a href="updateshirtsize.php?id=' . $row['id'] . '" class="btn btn-primary">update</a>';
                 echo '<a href="shirtsize.php?id=' . $row['id'] . '" class="btn btn-danger">delete</a>';
             }
@@ -52,9 +52,6 @@ if (isset($_GET['id'])) {
         <br>
         <p>ADD Shirt Size</p>
         <form action="process_shirtsize.php" method="POST">
-            <label for="id">Shirt Size ID:</label>
-            <input type="text" id="id" name="id" required>
-            <br>
             <label for="shirtsize">Shirt Size Name:</label>
             <input type="text" id="shirtsize" name="shirtsize" required>
             <br>

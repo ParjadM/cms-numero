@@ -12,7 +12,7 @@ $dbname = "mockdb";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 $sql = "SELECT id,first_name, last_name, email, date_started, genderid, shirtsizeid, departmentid, regionId, positionId, usertype, assign, password, name FROM info";
-$sql1 = "SELECT id,name,email, usertype, assign FROM user";
+
 $result = $conn->query($sql);
 //$result1 = $conn->query($sql1);
 
@@ -32,7 +32,7 @@ $resultusertype = $conn->query($sqlusertype);
 $sqluser = "SELECT id,name,email,assign FROM info WHERE usertype = '3'";
 $resultuser = $conn->query($sqluser);
 
-$sqladmin = "SELECT name,email FROM user WHERE usertype = '2'";
+$sqladmin = "SELECT name,email FROM info WHERE usertype = '2'";
 $resultadmin = $conn->query($sqladmin);
 
 

@@ -40,7 +40,7 @@ if (isset($_GET['id'])) {
 
         if ($gendertable->num_rows > 0) {
             while ($row = $gendertable->fetch_assoc()) {
-                echo '<p>' . $row['id'] . ' - ' . $row['gender'] . '</p>';
+                echo '<p>' . $row['gender'] . '</p>';
                 echo '<a href="updategender.php?id=' . $row['id'] . '" class="btn btn-primary">update</a>';
                 echo '<a href="gender.php?id=' . $row['id'] . '" class="btn btn-danger">delete</a>';
             }
@@ -52,9 +52,6 @@ if (isset($_GET['id'])) {
         <br>
         <p>ADD Gender</p>
         <form action="process_gender.php" method="POST">
-            <label for="id">Gender ID:</label>
-            <input type="text" id="id" name="id" required>
-            <br>
             <label for="gender">Gender Name:</label>
             <input type="text" id="gender" name="gender" required>
             <br>

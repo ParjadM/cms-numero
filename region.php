@@ -40,7 +40,7 @@ if (isset($_GET['id'])) {
 
         if ($regiontable->num_rows > 0) {
             while ($row = $regiontable->fetch_assoc()) {
-                echo '<p>' . $row['id'] . ' - ' . $row['regions'] . '</p>';
+                echo '<p>'  . $row['regions'] . '</p>';
                 echo '<a href="updateregion.php?id=' . $row['id'] . '" class="btn btn-primary">update</a>';
                 echo '<a href="region.php?id=' . $row['id'] . '" class="btn btn-danger">delete</a>';
             }
@@ -52,9 +52,6 @@ if (isset($_GET['id'])) {
         <br>
         <p>ADD Region</p>
         <form action="process_region.php" method="POST">
-            <label for="id">Region ID:</label>
-            <input type="text" id="id" name="id" required>
-            <br>
             <label for="regions">Region Name:</label>
             <input type="text" id="regions" name="regions" required>
             <br>

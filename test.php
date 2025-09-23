@@ -49,7 +49,7 @@
                         if ($resultgender->num_rows > 0) {
                             // output data of each row
                             while ($row = $resultgender->fetch_assoc()) {
-                                echo '<option value="' . $row['id'] . '">' . $row['id'] . ' = ' . $row['gender'] . '</option>';
+                                echo '<option value="' . $row['id'] . '">' . $row['gender'] . '</option>';
                             }
                         } else {
                             echo "<option value='None' selected>";
@@ -65,7 +65,7 @@
                         if ($resultshirtsize->num_rows > 0) {
                             // output data of each row
                             while ($row = $resultshirtsize->fetch_assoc()) {
-                                echo '<option value="' . $row['id'] . '">' . $row['id'] . ' = ' . $row['shirtsize'] . '</option>';
+                                echo '<option value="' . $row['id'] . '">' . $row['shirtsize'] . '</option>';
                             }
                         } else {
                             echo "<option value='None' selected>";
@@ -81,7 +81,7 @@
                         if ($resultdepartment->num_rows > 0) {
                             // output data of each row
                             while ($row = $resultdepartment->fetch_assoc()) {
-                                echo '<option value="' . $row['id'] . '">' . $row['id'] . ' = ' . $row['departments'] . '</option>';
+                                echo '<option value="' . $row['id'] . '">' . $row['departments'] . '</option>';
                             }
                         } else {
                             echo "<option value='None' selected>";
@@ -97,7 +97,7 @@
                         if ($resultregion->num_rows > 0) {
                             // output data of each row
                             while ($row = $resultregion->fetch_assoc()) {
-                                echo '<option value="' . $row['id'] . '">' . $row['id'] . ' = ' . $row['regions'] . '</option>';
+                                echo '<option value="' . $row['id'] . '">' . $row['regions'] . '</option>';
                             }
                         } else {
                             echo "<option value='None' selected>";
@@ -113,7 +113,7 @@
                         if ($resultposition->num_rows > 0) {
                             // output data of each row
                             while ($row = $resultposition->fetch_assoc()) {
-                                echo '<option value="' . $row['id'] . '">' . $row['id'] . ' = ' . $row['position'] . ': ' . $row['salary'] . '</option>';
+                                echo '<option value="' . $row['id'] . '">' . $row['position'] . ': ' . $row['salary'] . '</option>';
                             }
                         } else {
                             echo "<option value='None' selected>";
@@ -122,7 +122,7 @@
                     ?>
             </select>
             <br>
-            
+
 
             <button type="submit" class="btn btn-success">Submit</button>
 
@@ -135,3 +135,9 @@
         <a href="position.php" class="btn btn-primary">Position</a>
         <a href="region.php" class="btn btn-primary">Region</a>
         <a href="shirtsize.php" class="btn btn-primary">Shirt Size</a>
+
+        <?PHP
+        if ($_SESSION['usertype'] == '1') {
+            echo '<a href="superadmin.php" class="btn btn-danger">Super Admin Page</a>';
+        }
+        ?>
