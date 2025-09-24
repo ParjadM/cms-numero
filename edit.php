@@ -42,8 +42,8 @@ if (isset($_POST['update'])) {
     $shirtsizedid = $_POST['shirtsizeid'];
     $departmentid = $_POST['departmentid'];
     $regionId = $_POST['regionid'];
-    $positionId = $_POST['positionid'];
-
+    $positionId = $_POST['positionId'];
+    
     $update_sql = "Update info set id='$s_id', first_name='$s_first_name', last_name='$s_last_name', email='$email', date_started='$date_started', genderid='$genderid', shirtsizeid='$shirtsizedid', departmentid='$departmentid', regionId='$regionId', positionId='$positionId' where id='$s_ids'";
 
     $data = mysqli_query($conn, $update_sql);
@@ -76,21 +76,106 @@ if (isset($_POST['update'])) {
     <input type="date" id="date_started" name="date_started" value="<?php echo $Onerow['date_started']; ?>">
     <br>
     <label for="genderid">Gender:</label>
-    <input type="text" id="genderid" name="genderid" value="<?php echo $Onerow['genderid']; ?>">
+    <select name="genderid" id="genderid">
+        <option value="None" selected>
+            <?PHP if ($resultgender->num_rows > 0) {
+                if ($resultgender->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $resultgender->fetch_assoc()) {
+                        if ($row['id'] == $Onerow['genderid']) {
+                            echo '<option value="' . $row['id'] . '" selected>' . $row['gender'] . '</option>';
+                        } else {
+                            echo '<option value="' . $row['id'] . '">' . $row['gender'] . '</option>';
+                        }
+                    }
+                } else {
+                    echo "<option value='None' selected>";
+                }
+            }
+            ?>
+    </select>
     <br>
     <label for="shirtsizeid">Shirt Size:</label>
-    <input type="text" id="shirtsizeid" name="shirtsizeid" value="<?php echo $Onerow['shirtsizeid']; ?>">
+    <select name="shirtsizeid" id="shirtsizeid">
+        <option value="None" selected>
+            <?PHP if ($resultshirtsize->num_rows > 0) {
+                if ($resultshirtsize->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $resultshirtsize->fetch_assoc()) {
+                        if ($row['id'] == $Onerow['shirtsizeid']) {
+                            echo '<option value="' . $row['id'] . '" selected>' . $row['shirtsize'] . '</option>';
+                        } else {
+                            echo '<option value="' . $row['id'] . '">' . $row['shirtsize'] . '</option>';
+                        }
+                    }
+                } else {
+                    echo "<option value='None' selected>";
+                }
+            }
+            ?>
+    </select>
     <br>
     <label for="departmentid">Department:</label>
-    <input type="text" id="departmentid" name="departmentid" value="<?php echo $Onerow['departmentid']; ?>">
+    <select name="departmentid" id="departmentid">
+        <option value="None" selected>
+            <?PHP if ($resultdepartment->num_rows > 0) {
+                if ($resultdepartment->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $resultdepartment->fetch_assoc()) {
+                        if ($row['id'] == $Onerow['departmentid']) {
+                            echo '<option value="' . $row['id'] . '" selected>' . $row['departments'] . '</option>';
+                        } else {
+                            echo '<option value="' . $row['id'] . '">' . $row['departments'] . '</option>';
+                        }
+                    }
+                } else {
+                    echo "<option value='None' selected>";
+                }
+            }
+            ?>
+    </select>
     <br>
     <label for="regionid">Region:</label>
-    <input type="text" id="regionid" name="regionid" value="<?php echo $Onerow['regionId']; ?>">
+    <select name="regionid" id="regionid">
+        <option value="None" selected>
+            <?PHP if ($resultregion->num_rows > 0) {
+                if ($resultregion->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $resultregion->fetch_assoc()) {
+                        if ($row['id'] == $Onerow['regionId']) {
+                            echo '<option value="' . $row['id'] . '" selected>' . $row['regions'] . '</option>';
+                        } else {
+                            echo '<option value="' . $row['id'] . '">' . $row['regions'] . '</option>';
+                        }
+                    }
+                } else {
+                    echo "<option value='None' selected>";
+                }
+            }
+            ?>
+    </select>
     <br>
-    <label for="positionid">Position:</label>
-    <input type="text" id="positionid" name="positionid" value="<?php echo $Onerow['positionId']; ?>">
+    <label for="positionId">Position:</label>
+    <select name="positionId" id="positionId">
+        <option value="None" selected>
+            <?PHP if ($resultposition->num_rows > 0) {
+                if ($resultposition->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $resultposition->fetch_assoc()) {
+                        if ($row['id'] == $Onerow['positionId']) {
+                            echo '<option value="' . $row['id'] . '" selected>' . $row['position'] .  '</option>';
+                        } else {
+                            echo '<option value="' . $row['id'] . '">' . $row['position'] . '</option>';
+                        }
+                    }
+                } else {
+                    echo "<option value='None' selected>";
+                }
+            }
+            ?>
+    </select>
     <br>
     <button type="submit" name="update" class="btn btn-success">Update</button>
 </form>
-<a href="update.php"  class="btn btn-info">Back</a>
+<a href="update.php" class="btn btn-info">Back</a>
 <?php include 'footer.php'; ?>
