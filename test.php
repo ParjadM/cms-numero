@@ -107,7 +107,7 @@
             </select>
             <br>
             <label for="positionId">Position:</label>
-            <select name="date_started" id="date_started">
+            <select name="positionId" id="positionId">
                 <option value="None" selected>
                     <?PHP if ($resultposition->num_rows > 0) {
                         if ($resultposition->num_rows > 0) {
