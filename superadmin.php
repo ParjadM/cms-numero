@@ -1,4 +1,3 @@
-<?php include 'header.php'; ?>
 <?php include 'connection.php'; ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <style>
@@ -76,4 +75,5 @@
         <a href="superupdate.php" class="btn btn-success">admin update</a>
         <a href="test.php" class="btn btn-success">admin page</a>
         <a href="superassign.php" class="btn btn-success">assign roles</a>
+        <a href="superapprove.php" class="btn btn-success">approve users</a>
         <?php include 'footer.php'; ?>

@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
 }
 ?>
 <h1>Info page</h1>
-<p>first_name, - last_name - email - date_started - genderid - shirtsize - departmentid - regionId - positionId</p>
+<p>first_name, - last_name - email - date_started - gender - shirtsize - department - region - position</p>
 <?PHP
 
 // The corrected SQL query with a JOIN to get the shirtsize name
@@ -70,7 +70,9 @@ if ($result->num_rows > 0) {
 
         if ($row['email'] == $email) {
             echo '<p>' . $row['id'] . ' - ' . $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'] . ' - ' . $row['date_started'] . ' - ' . $row['gender'] . ' - ' . $row['shirtsize'] . ' - ' . $row['departments'] . ' - ' . $row['regions'] . ' - ' . $row['position'] . '</p>';
-            echo '<a href="updateUserInfo.php?id=' . $row['id'] . '" class="btn btn-primary">update</a>';
+            if($row['usertype'] == '3'){
+                echo '<a href="updateUserInfo.php?id=' . $row['id'] . '" class="btn btn-primary">update</a>';
+            }
         }
     }
     

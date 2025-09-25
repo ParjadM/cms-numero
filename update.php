@@ -32,7 +32,7 @@ if (isset($_GET['id'])) {
 }
 ?>
 <h1>Info page</h1>
-<p>first_name, - last_name - email - date_started - genderid - shirtsizeid - departmentid - regionId - positionId - usertype - assign - name</p>
+<p>first_name, - last_name - email - date_started - gender - shirtsize - department - region - position - usertype - assign - name</p>
 <?PHP
 $sql = "SELECT i.id, i.first_name, i.last_name, i.email, i.date_started, i.usertype, i.assign, i.password, i.name,g.gender,s.shirtsize,d.departments,r.regions,p.position
         FROM info i
@@ -49,7 +49,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         if ($row['email'] == $email) {
             $name = $row['name'];
-            echo '<p>' . $row['id'] . ' - ' . $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'] . ' - ' . $row['date_started'] . ' - ' . $row['gender'] . ' - ' . $row['shirtsize'] . ' - ' . $row['departments'] . ' - ' . $row['regions'] . ' - ' . $row['position'] . '</p>' . $row['usertype'] . ' - ' . $row['assign'] .  ' - ' . $row['name'] . '</p>';
+            echo '<p>' . $row['id'] . ' - ' . $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'] . ' - ' . $row['date_started'] . ' - ' . $row['gender'] . ' - ' . $row['shirtsize'] . ' - ' . $row['departments'] . ' - ' . $row['regions'] . ' - ' . $row['position'] . ' - ' . $row['usertype'] . ' - ' . $row['assign'] .  ' - ' . $row['name'] . '</p>';
             echo '<a href="edit.php?id=' . $row['id'] . '" class="btn btn-primary">update</a>';
             echo '<a href="update.php?id=' . $row['id'] . '" class="btn btn-danger">delete</a>';
         }
@@ -58,7 +58,7 @@ if ($result->num_rows > 0) {
     $result->data_seek(0);
     while ($row = $result->fetch_assoc()) {
         if ($row['assign'] == $name) {
-            echo '<p>' . $row['id'] . ' - ' . $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'] . ' - ' . $row['date_started'] . ' - ' . $row['gender'] . ' - ' . $row['shirtsize'] . ' - ' . $row['departments'] . ' - ' . $row['regions'] . ' - ' . $row['position'] . '</p>'; ' - ' . $row['usertype'] . ' - ' . $row['assign'] .  ' - ' . $row['name'] . '</p>';
+            echo '<p>' . $row['id'] . ' - ' . $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'] . ' - ' . $row['date_started'] . ' - ' . $row['gender'] . ' - ' . $row['shirtsize'] . ' - ' . $row['departments'] . ' - ' . $row['regions'] . ' - ' . $row['position']. ' - ' . $row['usertype'] . ' - ' . $row['assign'] .  ' - ' . $row['name'] . '</p>';
             echo '<a href="edit.php?id=' . $row['id'] . '" class="btn btn-primary">update</a>';
             echo '<a href="update.php?id=' . $row['id'] . '" class="btn btn-danger">delete</a>';
         }

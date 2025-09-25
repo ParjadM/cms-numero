@@ -40,7 +40,7 @@ if (isset($_POST['update'])) {
     
     $admin_name = $Onerow['name']; 
 
-    $update_sql = "UPDATE info SET assign ='$admin_name' WHERE id = '$user_id'";
+    $update_sql = "UPDATE info SET assign ='$s_ids' WHERE id = '$user_id'";
     $data = mysqli_query($conn, $update_sql);
 
     if ($data) {
